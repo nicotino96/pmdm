@@ -12,7 +12,8 @@
         android:text="Tostada"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/toastButton"/>
     <Button
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +21,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Lanzar otra actividad"/>
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mantequilla no incluida"
+        app:layout_constraintTop_toBottomOf="@id/toastButton"
+        />
 
 
 
