@@ -9,6 +9,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Toast.makeText(context,"MainActivity en segundo plano",Toast.LENGTH_LONG).show();
+    }
+
     private Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
