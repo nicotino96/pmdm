@@ -23,6 +23,7 @@ public class MonstersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_monsters);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment1()).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment2()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new Fragment3()).commit();
         BottomNavigationView bar = findViewById(R.id.bottomNavigation);
         bar.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -38,6 +39,8 @@ public class MonstersActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment).commit();
                 }
                 if (item.getItemId() == R.id.item3) {
+                    Fragment myFragment = new Fragment3();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, myFragment).commit();
                     Toast.makeText(context,"Tercer Digimon", Toast.LENGTH_LONG).show();
                     // Hacer algo si el usuario pulsa Digimon 3
                 }
