@@ -9,13 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Fragment1 extends Fragment {
-    public Fragment1(){
+public class Fragment2 extends Fragment {
+    public Fragment2(){
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_1, container,false);
-}
+        return inflater.inflate(R.layout.fragment_2, container,false);
+    }
 }
