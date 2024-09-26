@@ -10,7 +10,6 @@ public class OnClickHandler implements View.OnClickListener{
     public OnClickHandler(Context context) {
         this.context = context;
     }
-
     @Override
     public void onClick(View view) {
         Toast.makeText(this.context, "¡Tostada al aire!", Toast.LENGTH_LONG).show();
