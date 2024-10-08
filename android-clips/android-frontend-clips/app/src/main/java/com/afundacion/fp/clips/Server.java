@@ -21,5 +21,5 @@ public class Server {
      *
      * Una vez configurado con éxito, no habrá que repetirlo.
      */
-    public static String name = "http://raspi:8000";
+    public static String name = "http://192.168.0.99:8000";
 }
