@@ -39,6 +39,19 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                if (error.networkResponse == null) {
+                    // Error: No se ha establecido la conexión
+                    Toast.makeText(context, "Problems with the connection!", Toast.LENGTH_LONG).show();
+
+                } else {
+                    // Error: El servidor ha dado una respuesta de error
+
+                    // La siguiente variable contendrá el código HTTP,
+                    // por ejemplo 404, 500,...
+                    int serverCode = error.networkResponse.statusCode;
+                    Toast.makeText(context, "Server status: " + serverCode, Toast.LENGTH_LONG).show();
+
+                }
 
             }
         }
