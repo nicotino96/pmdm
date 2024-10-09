@@ -5,6 +5,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue queue;
     private Context context = this;
     private ConstraintLayout mainLayout;
+    private ProgressBar progressBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.queue = Volley.newRequestQueue(context);
+        this.mainLayout = findViewById(R.id.main_layout); // Lo asignamos con findViewById
+        this.progressBar = findViewById(R.id.myProgressBar);
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.GET,
                 Server.name + "/health",
@@ -64,10 +69,9 @@ public class MainActivity extends AppCompatActivity {
         );
         getClips();
         this.queue.add(request);
-        this.mainLayout = findViewById(R.id.main_layout); // Lo asignamos con findViewById
-
     }
     private void getClips() {
+        progressBar.setVisibility(View.VISIBLE);
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
                 Request.Method.GET,
                 Server.name + "/clips",
@@ -75,21 +79,19 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<JSONArray>() {
                     @Override
                     public void onResponse(JSONArray response) {
+                        progressBar.setVisibility(View.INVISIBLE);
                         Snackbar.make(mainLayout, "List obtained", Snackbar.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
+                        progressBar.setVisibility(View.INVISIBLE);
                         if (error.networkResponse == null) {
-
                             Snackbar.make(mainLayout, "Problems with the connection!", Snackbar.LENGTH_LONG).show();
-
                         } else {
-
                             int serverCode = error.networkResponse.statusCode;
                             Snackbar.make(mainLayout, "Server responded with "+serverCode, Snackbar.LENGTH_LONG).show();
-
                         }
                     }
                 }
