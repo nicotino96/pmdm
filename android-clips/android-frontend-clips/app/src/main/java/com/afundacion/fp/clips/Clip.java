@@ -13,4 +13,8 @@ public class Clip {
         this.title = json.getString("title");
         this.urlVideo = json.getString("videoUrl");
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

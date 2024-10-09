@@ -24,4 +24,8 @@ public class ClipsList {
             }
         }
     }
+
+    public List<Clip> getClips() {
+        return clips;
+    }
 }
