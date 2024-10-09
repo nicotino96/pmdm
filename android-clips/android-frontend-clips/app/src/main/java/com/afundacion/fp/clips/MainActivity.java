@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Context context = this;
     private ConstraintLayout mainLayout;
     private ProgressBar progressBar;
+    private ClipsList clips;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONArray response) {
                         progressBar.setVisibility(View.INVISIBLE);
                         Snackbar.make(mainLayout, "List obtained", Snackbar.LENGTH_LONG).show();
+                        setClips(new ClipsList(response));
                     }
                 },
                 new Response.ErrorListener(){
@@ -99,6 +101,14 @@ public class MainActivity extends AppCompatActivity {
         this.queue.add(jsonArrayRequest);
 
     }
+    public void setClips(ClipsList clips) {
+        this.clips = clips;
+    }
+    public ClipsList getClipsForTest() {
+        return clips;
+    }
+
+
 
 }
 
