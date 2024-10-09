@@ -1,6 +1,8 @@
 package com.afundacion.fp.clips;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -12,6 +14,7 @@ public class VideoActivity extends AppCompatActivity {
     public static final String INTENT_CLIP_ID = "CLIP_ID";
     public static final String INTENT_CLIP_URL = "CLIP_URL";
     private VideoView videoView;
+    private Activity activity = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,12 @@ public class VideoActivity extends AppCompatActivity {
         videoView = findViewById(R.id.video_view);
         videoView.setVideoURI(Uri.parse(clipUrl));
         videoView.start();
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                activity.finish();
+            }
+        });
 
     }
 
