@@ -22,12 +22,9 @@ public class ClipViewHolder extends RecyclerView.ViewHolder {
                 Context context = view.getContext();
                 Toast.makeText(context, "Clicked on ViewHolder with clipId: " + clipId, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(context, VideoActivity.class);
-                context.startActivity(intent);
                 intent.putExtra(VideoActivity.INTENT_CLIP_ID, clipId);
                 intent.putExtra(VideoActivity.INTENT_CLIP_URL,clip.getUrlVideo());
                 context.startActivity(intent);
-
-
             }
         });
     }
