@@ -3,7 +3,7 @@
 call gradlew connectedLocalhostDebugAndroidTest
 SetLocal EnableDelayedExpansion
 SET tests_fail=unknown
-SET xml_results_opt1="app\build\outputs\androidTest-results\connected\TEST-Nexus_S_API_28(AVD) - 9-_app-.xml"
+SET xml_results_opt1="app\build\outputs\androidTest-results\connected\flavors\localhost\TEST-Nexus_S_API_28(AVD) - 9-_app-localhost.xml"
 SET xml_results_opt2="app\build\outputs\androidTest-results\connected\TEST-Nexus_S_API_28(AVD) - 9-_app-.xml"
 IF EXIST %xml_results_opt1% type %xml_results_opt1% > tests_output.xml
 IF EXIST %xml_results_opt2% type %xml_results_opt2% > tests_output.xml

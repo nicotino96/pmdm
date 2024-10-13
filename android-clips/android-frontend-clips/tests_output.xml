@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuite name="com.afundacion.fp.clips.T001MakingARequest" tests="23" failures="0" errors="0" skipped="0" time="199.924" timestamp="2024-10-13T10:04:16" hostname="localhost">
+  <properties>
+    <property name="device" value="Nexus_S_API_28(AVD) - 9" />
+    <property name="flavor" value="localhost" />
+    <property name="project" value=":app" />
+  </properties>
+  <testcase name="checkRequestSentAndInitialToastShown" classname="com.afundacion.fp.clips.T001MakingARequest" time="6.225" />
+  <testcase name="checkRequestSentAndInitialToastShown" classname="com.afundacion.fp.clips.T002MakingARequestAndUsingResponse" time="3.718" />
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T003TakingIntoAccountErrorResponse" time="3.74" />
+  <testcase name="checkMethodExistsAndSendsRequestAndShowsSnackBar" classname="com.afundacion.fp.clips.T004JsonArrayRequest" time="3.578" />
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T005JsonArrayRequestErrorHandling" time="3.654" />
+  <testcase name="checkRequestSentAndServerErrorToastShown" classname="com.afundacion.fp.clips.T006ProgressBar" time="3.713" />
+  <testcase name="checkMethodExistsAndSendsRequestAndShowsSnackBar" classname="com.afundacion.fp.clips.T007ClipsModel" time="3.61" />
+  <testcase name="checkRecyclerViewExistsAndIsCorrect" classname="com.afundacion.fp.clips.T008RecyclerView" time="3.198" />
+  <testcase name="checkRecyclerViewCellXmlIsCorrect" classname="com.afundacion.fp.clips.T009RecyclerViewCell" time="3.305" />
+  <testcase name="checkClipViewHolderClassIsCorrect" classname="com.afundacion.fp.clips.T010ClipViewHolder" time="0.017" />
+  <testcase name="checkRecyclerClassHasCorrectConstructorAndAttributesAndCell1IsShown" classname="com.afundacion.fp.clips.T011CompletingRecyclerView" time="3.786" />
+  <testcase name="checkViewHolderHasCorrectMethodAndCells2to5AreShown" classname="com.afundacion.fp.clips.T011CompletingRecyclerView" time="14.04" />
+  <testcase name="checkToastIsCorrectWhenClickingCells" classname="com.afundacion.fp.clips.T012OnClickListenerForCell" time="7.067" />
+  <testcase name="checkToastIsCorrectWhenStartingVideoActivity" classname="com.afundacion.fp.clips.T013ActivityForVideo" time="7.75" />
+  <testcase name="checkVideoViewPlaysVideo" classname="com.afundacion.fp.clips.T014PlayingVideoFromUrl" time="11.217" />
+  <testcase name="checkPlaysVideoAndFinishes" classname="com.afundacion.fp.clips.T015WhenItsOverItsOver" time="32.63" />
+  <testcase name="checkAppearance1IsShown" classname="com.afundacion.fp.clips.T016Appearances" time="14.588" />
+  <testcase name="checkModelObjectsAreCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="3.235" />
+  <testcase name="checkRecyclerClassHasCorrectConstructorAndAttributes" classname="com.afundacion.fp.clips.T016Appearances" time="3.475" />
+  <testcase name="checkRecyclerIsCorrectlyPositioned" classname="com.afundacion.fp.clips.T016Appearances" time="9.399" />
+  <testcase name="checkCharacterViewHolderClassIsCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="1.909" />
+  <testcase name="checkViewHolderXmlIsCorrect" classname="com.afundacion.fp.clips.T016Appearances" time="3.406" />
+  <testcase name="checkAlphaTransitions" classname="com.afundacion.fp.clips.T017FadeOut" time="18.702" />
+</testsuite>
