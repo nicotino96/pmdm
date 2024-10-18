@@ -28,6 +28,15 @@
         android:inputType="textPassword"
         android:hint="Contraseña"
         />
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Registrarse"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
