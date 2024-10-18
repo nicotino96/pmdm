@@ -62,7 +62,13 @@ public class RegisterActivity extends AppCompatActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(RegisterActivity.this, "Error en el registro: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                            if (error.networkResponse == null) {
+                                Toast.makeText(RegisterActivity.this,"Sin conexión", Toast.LENGTH_LONG).show();
+                            } else {
+                                int serverCode = error.networkResponse.statusCode;
+                                Toast.makeText(RegisterActivity.this,"El servidor respondió con "+serverCode,Toast.LENGTH_LONG).show();
+                            }
+
 
                         }
                     }
