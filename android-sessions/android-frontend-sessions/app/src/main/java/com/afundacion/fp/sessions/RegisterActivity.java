@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         editTextUser = findViewById(R.id.usuario);
+
         editTextPassword = findViewById(R.id.password);
         buttonRegister = findViewById(R.id.boton);
         requestQueue = Volley.newRequestQueue(this);
