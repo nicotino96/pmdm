@@ -38,11 +38,11 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 Toast.makeText(RegisterActivity.this, "Nombre: "+editTextUser.getText().toString(), Toast.LENGTH_LONG).show();
                 sendPostRequest();
             }
         });
-
     }
     private void sendPostRequest() {
         JSONObject requestBody = new JSONObject();

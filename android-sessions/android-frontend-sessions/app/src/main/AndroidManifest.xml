@@ -17,11 +17,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".InstrumentationRegisterTestHelperActivity"
@@ -29,5 +24,15 @@
         <activity
             android:name=".InstrumentationLoginTestHelperActivity"
             android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"> <!-- exported debe indicarse como "true" para actividades LAUNCHER desde Android 12 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
     </application>
+
 </manifest>
