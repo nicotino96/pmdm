@@ -68,15 +68,13 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             receivedToken = response.getString("sessionToken");
                         } catch (JSONException e) {
-                            // Si el JSON de la respuesta NO contiene "sessionToken", vamos a lanzar
-                            // una RuntimeException para que la aplicación rompa.
-                            // En preferible que sea NOTORIO el problema del servidor, pues desde
-                            // la aplicación no podemos hacer nada. Estamos 'vendidos'.
+
                             throw new RuntimeException(e);
                         }
-                        // Si la respuesta está OK, mostramos un Toast
-                        // Esta línea asume que private Context context = this; está definido
+
                         Toast.makeText(LoginActivity.this, "Token: " + receivedToken, Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(LoginActivity.this, StatusActivity.class);
+                        LoginActivity.this.startActivity(myIntent);
                     }
                 },
                 new Response.ErrorListener() {
