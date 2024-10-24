@@ -50,6 +50,7 @@ public class StatusActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(context, "Modificar a: " + editTextModifyStatus.getText().toString(), Toast.LENGTH_LONG).show();
+                        updateStatus();
                     }
                 });
                 // Esto añade un botón al diálogo
@@ -80,6 +81,7 @@ public class StatusActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             throw new RuntimeException(e);
                         }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -99,5 +101,42 @@ public class StatusActivity extends AppCompatActivity {
         editTextModifyStatus = inflatedView.findViewById(R.id.edit_text_change_status);
         return inflatedView;
     }
+    private void updateStatus() {
+        // Recuperamos el nombre de usuario de las preferencias
+        SharedPreferences preferences = getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
+        String username = preferences.getString("VALID_USERNAME", null);
+
+        JSONObject requestBody = new JSONObject();
+        try {
+            requestBody.put("status", editTextModifyStatus.getText().toString());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+
+        JsonObjectRequestAuthenticated request = new JsonObjectRequestAuthenticated(
+                Request.Method.PUT,
+                Server.name + "/users/" + username + "/status",
+                requestBody,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        // Actualizar el TextView y obtener el nuevo estado
+                        textViewUserStatus.setText("Cargando");
+                        obtainStatus();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, "No se pudo actualizar el estado", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                context
+        );
+
+        queue.add(request);
+    }
+
+
 
 }
