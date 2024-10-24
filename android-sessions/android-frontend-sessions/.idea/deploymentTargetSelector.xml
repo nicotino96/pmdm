@@ -24,6 +24,9 @@
       <SelectionState runConfigName="android-frontend-sessions.Sessions.app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="LauncherActivity">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

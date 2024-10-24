@@ -27,14 +27,18 @@
         <activity
             android:name=".InstrumentationLoginTestHelperActivity"
             android:exported="false" />
+        <activity android:name=".LauncherActivity"
+            android:exported="true"
+            android:noHistory="true"> <!-- con noHistory evitamos que, al pulsar Atrás, el usuario regrese a esta actividad -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:exported="true"> <!-- exported debe indicarse como "true" para actividades LAUNCHER desde Android 12 -->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

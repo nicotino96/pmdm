@@ -1,7 +1,9 @@
 package com.afundacion.fp.sessions;
 
 import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextUser;
     private EditText editTextPass;
     private RequestQueue requestQueue;
+    private Context context=this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-                LoginActivity.this.startActivity(myIntent);
+                Intent myIntent = new Intent(context, RegisterActivity.class);
+                context.startActivity(myIntent);
             }
         });
         logButton = findViewById(R.id.boton_login);
@@ -72,20 +75,26 @@ public class LoginActivity extends AppCompatActivity {
                             throw new RuntimeException(e);
                         }
 
-                        Toast.makeText(LoginActivity.this, "Token: " + receivedToken, Toast.LENGTH_SHORT).show();
-                        Intent myIntent = new Intent(LoginActivity.this, StatusActivity.class);
-                        LoginActivity.this.startActivity(myIntent);
+                        Toast.makeText(context, "Token: " + receivedToken, Toast.LENGTH_SHORT).show();
+                        Intent myIntent = new Intent(context, StatusActivity.class);
+                        startActivity(myIntent);
+                        SharedPreferences preferences = context.getSharedPreferences("SESSIONS_APP_PREFS", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putString("VALID_USERNAME",editTextUser.getText().toString());
+                        editor.commit();
+                        finish();
                     }
+
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         if (error.networkResponse == null) {
-                            Toast.makeText(LoginActivity.this, "Sin conexión", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "Sin conexión", Toast.LENGTH_LONG).show();
                         }
                         else{
                             int serverCode = error.networkResponse.statusCode;
-                            Toast.makeText(LoginActivity.this, "El servidor respondió con "+serverCode, Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "El servidor respondió con "+serverCode, Toast.LENGTH_LONG).show();
                         }
 
                     }
