@@ -39,15 +39,17 @@ public class RegisterActivity extends AppCompatActivity {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+
                 Toast.makeText(RegisterActivity.this, "Nombre: "+editTextUser.getText().toString(), Toast.LENGTH_LONG).show();
                 sendPostRequest();
+
             }
         });
     }
     private void sendPostRequest() {
-        JSONObject requestBody = new JSONObject();
         try {
+            JSONObject requestBody = new JSONObject();
+
             requestBody.put("username", editTextUser.getText().toString());
             requestBody.put("password", editTextPassword.getText().toString());
             JsonObjectRequest request = new JsonObjectRequest(
@@ -58,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             Toast.makeText(RegisterActivity.this,"Registro correcto",Toast.LENGTH_LONG).show();
+                            finish();
                         }
                     },
                     new Response.ErrorListener() {

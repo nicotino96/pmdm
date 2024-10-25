@@ -24,7 +24,19 @@
       <SelectionState runConfigName="android-frontend-sessions.Sessions.app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="LauncherActivity">
+      <SelectionState runConfigName="T013DialogBody">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="T006ActivityForLogin">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="T010UsingSharedPreferences">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="T012ButtonThatFloats">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="T014PutRequest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

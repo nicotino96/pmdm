@@ -12,6 +12,7 @@
         app:layout_constraintBottom_toTopOf="@id/password_login"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="text"
         android:hint="elliot.doe"/>
 
     <EditText
