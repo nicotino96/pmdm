@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://db6avidc85frp"]
+[gd_scene load_steps=9 format=4 uid="uid://db6avidc85frp"]
 
 [ext_resource type="PackedScene" uid="uid://w5cv23cix24j" path="res://scenes/killzone.tscn" id="1_y31y2"]
 [ext_resource type="Texture2D" uid="uid://83t74u17758" path="res://assets/tiles.png" id="2_sauvd"]
 [ext_resource type="PackedScene" uid="uid://bx2ad0gewnr7c" path="res://scenes/player.tscn" id="3_bfltw"]
+[ext_resource type="Script" path="res://scenes/cambiar3.gd" id="4_ne7v1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_y6awy"]
 distance = -329.0
@@ -178,6 +179,9 @@ custom_data_layer_0/name = "is_ice"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_gcs47")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ohqm"]
+size = Vector2(43, 232.5)
+
 [node name="level3" type="Node2D"]
 
 [node name="Killzone" parent="." instance=ExtResource("1_y31y2")]
@@ -200,3 +204,14 @@ metadata/_edit_group_ = true
 position = Vector2(0, -7)
 zoom = Vector2(4, 4)
 limit_bottom = 645
+
+[node name="Final" type="Area2D" parent="."]
+position = Vector2(1, 0)
+collision_mask = 2
+script = ExtResource("4_ne7v1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Final"]
+position = Vector2(2486.5, -106.75)
+shape = SubResource("RectangleShape2D_1ohqm")
+
+[connection signal="body_entered" from="Final" to="Final" method="_on_body_entered"]

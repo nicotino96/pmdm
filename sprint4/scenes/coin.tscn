@@ -57,6 +57,7 @@ script = ExtResource("1_u33gb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hevha")
+autoplay = "default"
 frame_progress = 0.582067
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
